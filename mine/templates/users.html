@@ -1,0 +1,19 @@
+<html lang="FR">
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/style.css"
+
+    </head>
+    <body>
+        <h1>
+            Users
+        </h1>
+        <div id="users">
+            {% for user in users %}
+            <span class="user">
+                <a class="pill" href="/front/users/{{ user.id }}">{{user.nickname}} ({{user.name}})</a>
+                <a href="mailto:{{user.email}}">{{user.email}}</a>
+            </span>
+            {% endfor %}
+        </div>
+    </body>
+</html>

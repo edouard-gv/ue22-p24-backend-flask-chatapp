@@ -1,0 +1,38 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#users {
+    display: flex;
+    flex: row wrap;
+    justify-content: center;
+}
+
+.user {
+    background-color: rgb(229, 248, 202);
+    border: 0.5px solid lightgrey;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px 20px;
+
+    .pill {
+        background-color: rgb(214, 238, 246);
+        border-radius: 8px;
+        padding: 10px;
+        margin-right: 10px;
+        color: rgb(52, 51, 51);
+    }
+
+    a {
+        text-decoration: none;
+        color: gray;
+    }
+}
+
+#messages {
+    width: 100%;
+    th, td {
+        border: 1px solid lightgrey;
+        text-align: center;
+    }
+}

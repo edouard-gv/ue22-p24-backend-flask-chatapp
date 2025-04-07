@@ -1,0 +1,46 @@
+<html lang="FR">
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <script type="text/javascript" src="/static/script.js"></script>
+        <!-- the socket.io library is used to connect to the ws endpoints on the server -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+        integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+        crossorigin="anonymous">
+        </script>
+    </head>
+    <body data-nickname="{{ user.nickname }}">
+        <h1>
+            {{ user.nickname }} Mailbox
+        </h1>
+        <h2>
+            ({{ user.name }} | {{ user.email }})
+        </h2>
+        <h3>
+            Post new message
+        </h3>
+        <form id="send-form" action="/api/messages" method="post">
+            <input type="hidden" name="author_id" value="{{ user.id }}">
+            <label for="recipient_id">Recipient:</label>
+            <select name="recipient_id">
+            {% for recipient in recipients %}
+            {% if recipient.id != user.id %}
+                <option value="{{recipient.id}}">{{recipient.nickname}}</option>
+            {% endif %}
+            {% endfor %}
+            </select>
+            <br><label for="Content">Message:</label>
+            <textarea name="content"></textarea>
+            <input type="submit" name="submit" id="submit">
+        </form>
+        <h3>
+            History
+        </h3>
+        <div id="messages">
+            {% for message in messages %}
+            <div class="message">
+                [from: {{message.author.nickname}}, to : {{message.recipient.nickname}}, on {{message.date}}] &OpenCurlyDoubleQuote; {{ message.content }} &CloseCurlyDoubleQuote;
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
