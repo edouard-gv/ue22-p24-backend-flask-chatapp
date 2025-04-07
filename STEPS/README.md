@@ -18,20 +18,24 @@ applications due to e.g. language constraints, so there's that.
 | Step | Description |
 | --- | --- |
 | 00 | the simplest possible hello world app
-| 01 | add a /db/alive endpoint to check if the database is alive
-| 02 | add a /api/users POST endpoint to create a user
+| 01 | connect to a SQL (sqlite) database
+| 01b | add a /db/alive endpoint to check if the database is alive
+| 01c | add a /api/version endpoint to check the app version
+| 02 | create a table in the DB
+| 02b | add a /api/users POST endpoint to create a user
 | 03 | add a /api/users GET endpoint to list users
 | 04 | /front/users serves a web page to see the users
 | 05 | redirect the / route to /front/users
 | 06 | new GET endpoint /api/users/<user_id> to retrieve a single user
-| 07 | new POST endpoint /api/messages to create a message
+| 07 | create a table for messages
+| 07b | new POST endpoint /api/messages to create a message
 | 08 | new GET /api/messages/ to retrieve all messages
 | 09 | new GET /api/messages/with/<user_id> endpoint - first draft
 | 10 | /api/messages/with/<user_id> returns both from and to user
 | 11 | /api/messages/with/<user_id> returns users details
 | 12 | /front/messages/<user_id> builds a html page to see messages
-| 13 | the HTML page adds an <input> tag to send messages
-| 14 | the HTML page locally displays the message it just sent
+| 13 | /front/messages/<user_id> has a dialog to send messages
+| 14 | /front/messages/<user_id> keeps track of the message it just sent
 | 15 | /api/messages creation endpoint returns more details
 | -- | at this point we start injecting SocketIO in the mix
 | 16 | app.py enables SocketIO & the front (HTML) messages page connects to the socket

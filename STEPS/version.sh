@@ -61,7 +61,7 @@ function prep() {
 }
 
 function summary() {
-    local nums=$(ls -d [0-9][0-9])
+    local nums=$(ls -d [0-9]*)
     for num in $nums; do
         [ ! -f $num/app.py ] && continue
         echo -n "| $num | "
